@@ -15,6 +15,7 @@
         <thead>
             <tr>
                 <th scope="col">title</th>
+                <th scope="col">category</th>
                 <th scope="col">content</th>
                 <th scope="col">image</th>
                 <th scope="col">slug</th>
@@ -25,6 +26,15 @@
             @forelse ($posts as $post)
                 <tr>
                     <th> {{$post->title}} </th>
+                    <td>
+                        {{-- {{$post->Category->label}} --}}
+                        {{-- {{$post->Category->label}} --}}
+                        @if($post->category)
+                            <span class="badge badge-pill badge-{{ $post->Category->color}}">{{$post->Category->label}}</span>
+                        @else 
+                            ---
+                        @endif 
+                    </td>
                     <td>
                         <p>
                             {{$post->content}}        
@@ -54,6 +64,7 @@
             
         </tbody>
     </table>
+    
 </div>
 
 
